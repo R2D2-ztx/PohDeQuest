@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="PohDeQuest" target="10" />
+      <module name="PohDeQuest" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
