@@ -64,7 +64,7 @@ public class User extends AbstractModel {
     }
 
     /**
-     * Sets the last name of the customer
+     * Sets the last name of the user
      *
      * @param lastName the name to set
      */
