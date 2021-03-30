@@ -1,4 +1,4 @@
-package org.r2d2gabigol.pohdequest;
+package org.byte2code.pohdequest;
 
 public class App {
 
