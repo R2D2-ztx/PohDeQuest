@@ -5,6 +5,7 @@ package org.byte2code.pohdequest.persistence.model;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 
 /**
@@ -14,26 +15,21 @@ import java.util.List;
 @Table(name = "user")
 public class User extends AbstractModel {
 
+    @Id
+    private Integer id;
+
+    private String username;
     private String firstName;
     private String lastName;
     private String email;
     private String phone;
 
-    @OneToMany(
-            // propagate changes on customer entity to account entities
-            cascade = {CascadeType.ALL},
-
-            // make sure to remove accounts if unlinked from customer
-            orphanRemoval = true,
-
-            // user customer foreign key on account table to establish
-            // the many-to-one relationship instead of a join table
-            mappedBy = "user",
-
-            // fetch accounts from database together with user
-            fetch = FetchType.EAGER
-    )
-    private List<Subscriptions> subscriptions = new ArrayList<Subscriptions>();
+    @ManyToMany
+    @JoinTable(
+            name = "subscriptions",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "podcast_id"))
+    private Set<Podcast> podcasts;
 
 
     /**
@@ -113,7 +109,7 @@ public class User extends AbstractModel {
      *
      * @return the podcasts
      */
-    public List<Subscriptions> getSubscriptions() {
+    public Set<Subscriptions> getSubscriptions() {
         return subscriptions;
     }
 

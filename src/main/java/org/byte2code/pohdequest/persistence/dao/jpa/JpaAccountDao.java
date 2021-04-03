@@ -1,6 +1,5 @@
 package org.byte2code.pohdequest.persistence.dao.jpa;
 
-import org.byte2code.pohdequest.persistence.model.Subscriptions;
 import org.springframework.stereotype.Repository;
 
 /**
