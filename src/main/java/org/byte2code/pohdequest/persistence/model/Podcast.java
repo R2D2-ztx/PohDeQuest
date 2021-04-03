@@ -10,8 +10,6 @@ import java.util.Set;
 @Table(name="podcast")
 public class Podcast extends AbstractModel{
 
-    @Id
-    private Integer id;
     private String title;
 
     @ManyToMany(
